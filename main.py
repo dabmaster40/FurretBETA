@@ -21,7 +21,6 @@ bot = commands.Bot(command_prefix = '<')
 slash = SlashCommand(bot, sync_commands=True)
 intents = discord.Intents.all()
 sent_users = []
-bot.remove_command("help")
 bot.launch_time = datetime.utcnow()
 
 #Bot==Events==================================================================
@@ -32,7 +31,6 @@ async def on_ready():
   print(f'Furret is in {len(bot.guilds)} server(s)!')
   for guild in bot.guilds:
         print("Joined {}".format(guild.name))
-
 
 
 #Basic==Commands===============================================================
@@ -96,4 +94,4 @@ async def bye(ctx):
 
 #Permission==Required==Commands==============================================
 
-bot.run('OTI2NjMxNzI5NTEzNTI1MzEx.Yc-fDA.7WUTAbr8G1Evrfhjr8kjM8AXvX8')
+bot.run('TOKEN')
