@@ -7,5 +7,5 @@ To run this bot in your own enviorment follow these steps.
 Download the ZIP file.
 Insert your own bot token.
 ```python
-pip install -rewuirements.txt
+pip install -r requirements.txt
 ```
