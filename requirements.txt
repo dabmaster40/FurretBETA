@@ -21,7 +21,6 @@ cryptography==3.4.8
 cs50==7.0.2
 cycler==0.10.0
 debugpy==1.2.1
-discord==1.7.3
 discord-py-slash-command==3.0.3
 discord.py==1.7.3
 distlib==0.3.2
