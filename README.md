@@ -5,7 +5,12 @@ All commands with this bot are slash commands.
 To run this bot in your own enviorment follow these steps.
 
 Download the ZIP file.
+
 Insert your own bot token.
+
+Install the requirements.
+
+
 ```python
 pip install -r requirements.txt
 ```
