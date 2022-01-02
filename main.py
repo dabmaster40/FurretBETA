@@ -22,6 +22,7 @@ slash = SlashCommand(bot, sync_commands=True)
 intents = discord.Intents.all()
 sent_users = []
 bot.launch_time = datetime.utcnow()
+bot.load_extension('playlist')
 
 #Bot==Events==================================================================
 
