@@ -78,6 +78,12 @@ async def review(ctx):
   embed = discord.Embed(title='Like Furret?', description= 'Please review Furret here!' + "(https://top.gg/bot/884858660935827467)".format(bot.user.id))
   await ctx.send(embed=embed)
 
+@slash.slash(name = 'Support', description = 'Sends a link to Furret\'s Support Server')
+@commands.cooldown(1, 2, commands.BucketType.user)
+async def support(ctx):
+  await ctx.send(f"Click below to go to Furret's Support Server!")
+  await ctx.send(f"https://discord.gg/8vscBHSNqA")
+
 @slash.slash(name = 'Hello', description = 'Says hello')
 @commands.cooldown(1, 2, commands.BucketType.user)
 async def hello(ctx):
@@ -98,5 +104,10 @@ async def bye(ctx):
 
 
 #Permission==Required==Commands==============================================
+
+
+
+
+
 
 bot.run('OTI2NjMxNzI5NTEzNTI1MzEx.Yc-fDA.Kbh13EpnTV3ybLaTWfTILQt6dRE')
