@@ -1,6 +1,5 @@
 import discord
 import os
-import wavelink
 import aiohttp
 import asyncio
 import random
