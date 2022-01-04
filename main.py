@@ -37,7 +37,7 @@ async def on_ready():
 
 #Import==Commands===============================================================
 
-for r, _, f in os.walk(os.getcwd()):
+for _, _, f in os.walk(os.getcwd()):
     for file in f:
         if file.endswith(".py"):
           bot.load_extension(f'cogs.{file}')
