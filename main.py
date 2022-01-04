@@ -37,10 +37,10 @@ async def on_ready():
 
 #Import==Commands===============================================================
 
-for _, _, f in os.walk(os.getcwd()):
-    for file in f:
-        if file.endswith(".py"):
-          bot.load_extension(f'cogs.{file}')
+for filename in os.listdir("./cogs"):
+    if filename.endswith(".py"):
+        bot.load_extension(f"cogs.{filename[:-3]}")
+        print("Cog Loaded!")
 
 #Economy=====================================================================
 
