@@ -45,8 +45,6 @@ class playlist(Cog):
     async def start_nodes(self):
         await self.bot.wait_until_ready()
 
-        # Initiate our nodes. For this example we will use one server.
-        # Region should be a discord.py guild.region e.g sydney or us_central (Though this is not technically required)
         await self.bot.wavelink.initiate_node(host='173.249.9.178',
                                               port=5074,
                                               rest_uri='http://173.249.9.178:5074',
