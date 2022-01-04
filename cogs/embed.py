@@ -26,7 +26,7 @@ class embed(Cog):
 
     @cog_ext.cog_slash(name="Stats", description="Stats for Furret aka the nerd command")
     async def stats(self, ctx: SlashContext):
-        embed = Embed(title="Furret Stats")
+        embed = Embed(title="Bot Stats", description="Created by dabmaster40#6556 with help from Dauhxe#1489)
         await ctx.send(embed=embed)
 
 def setup(bot: Bot):
