@@ -1,28 +1,17 @@
 import discord
 import os
-import aiohttp
-import asyncio
-import random
-import json
-import praw
 
 
-from discord.ext import commands, tasks
+from discord.ext import commands
 from discord_slash import SlashCommand
 from datetime import datetime
-from discord import Embed
-from discord import Member, Role
-from discord.utils import get
 from discord.ext.commands import has_permissions, MissingPermissions
-from random import choice
 
 bot = commands.Bot(command_prefix = '<')
 slash = SlashCommand(bot, sync_commands=True)
 intents = discord.Intents.all()
 sent_users = []
 bot.launch_time = datetime.utcnow()
-#bot.load_extension('cogs.embed')
-#bot.load_extension('cogs.playlist')
 #Bot==Events==================================================================
 
 @bot.event
@@ -39,8 +28,9 @@ async def on_ready():
 
 for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
+        print(f"Loading {filename}...")
         bot.load_extension(f"cogs.{filename[:-3]}")
-        print("Cog Loaded!")
+        print(f"Loaded {filename}!")
 
 #Economy=====================================================================
 
