@@ -6,7 +6,7 @@ from discord_slash import cog_ext, SlashContext
 
 #Playlist==Commands===============================================
 
-class bye(Cog):
+class basic(Cog):
     def __init__(self, bot: Bot):
         self.bot = bot
 
@@ -53,7 +53,7 @@ class bye(Cog):
 
     @cog_ext.cog_slash(name = 'Review', description = 'Links the top.gg page for Furret')
     async def review(self, ctx: SlashContext):
-        embed = Embed(title='Like Furret?', description= 'Please review Furret here!' + "(https://top.gg/bot/884858660935827467)".format(self.bot.user.id))
+        embed = Embed(title='Like Furret?', description= 'Please review Furret here!' + "(https://top.gg/bot/884858660935827467)")
         await ctx.send(embed=embed)
 
     @cog_ext.cog_slash(name = 'Support', description = 'Sends a link to Furret\'s Support Server')
@@ -63,4 +63,4 @@ class bye(Cog):
 
 
 def setup(bot: Bot):
-    bot.add_cog(bye(bot))
+    bot.add_cog(basic(bot))
