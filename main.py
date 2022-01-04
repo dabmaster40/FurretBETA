@@ -21,9 +21,8 @@ slash = SlashCommand(bot, sync_commands=True)
 intents = discord.Intents.all()
 sent_users = []
 bot.launch_time = datetime.utcnow()
-bot.load_extension('cogs.embed')
-bot.load_extension('cogs.playlist')
-bot.load_extension('cogs.support')
+#bot.load_extension('cogs.embed')
+#bot.load_extension('cogs.playlist')
 #Bot==Events==================================================================
 
 @bot.event
@@ -36,8 +35,12 @@ async def on_ready():
 
   
 
-#Basic==Commands===============================================================
+#Import==Commands===============================================================
 
+for r, _, f in os.walk(os.getcwd()):
+    for file in f:
+        if file.endswith(".py"):
+          bot.load_extension(f'cogs.{file}')
 
 #Economy=====================================================================
 
