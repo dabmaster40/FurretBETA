@@ -8,7 +8,7 @@ class support(Cog):
         self.bot = bot
 
     @cog_ext.cog_slash(name = 'Support', description = 'Sends a link to Furret\'s Support Server')
-    async def support(ctx):
+    async def support(self, ctx: SlashContext):
         await ctx.send(f"Click below to go to Furret's Support Server!")
         await ctx.send(f"https://discord.gg/8vscBHSNqA")
 
