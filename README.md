@@ -10,6 +10,7 @@ Insert your own bot token.
 
 Install the requirements.
 
+Current issues: nowplaying and queue do not work properly thus making these both useless will fix ASAP
 
 ```python
 pip install -r requirements.txt
