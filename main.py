@@ -20,6 +20,7 @@ async def on_ready():
   print(f'Furret is in {len(bot.guilds)} server(s)!')
   for guild in bot.guilds:
         print(f"Joined {guild.name}")
+  print('----------------------------------------------------')
   await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(bot.guilds)} servers"))
 
   
