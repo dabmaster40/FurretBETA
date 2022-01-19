@@ -132,9 +132,15 @@ class playlist(Cog):
         await ctx.send(f'Connecting to **`{channel.name}`**')
         await player.connect(channel.id)
 
+        controller = self.get_controller(ctx)
+        controller.channel = ctx.channel
+
     @cog_ext.cog_slash(name='play', description='Play a song by entering its name or link')
     async def play(self, ctx: SlashContext, *, query: str):
-        tracks = await self.bot.wavelink.get_tracks(f'ytsearch:{query}')
+        if not RURL.match(query):
+            query = f'ytsearch:{query}'
+
+        tracks = await self.bot.wavelink.get_tracks(f'{query}')
 
         if not tracks:
             return await ctx.send('Could not find any songs with that query.')
@@ -143,8 +149,11 @@ class playlist(Cog):
         if not player.is_connected:
             await ctx.invoke(self.connect_)
 
-        await ctx.send(f'Added {str(tracks[0])} to the queue.')
-        await player.play(tracks[0])
+        track = tracks[0]
+
+        controller = self.get_controller(ctx)
+        await controller.queue.put(track)
+        await ctx.send(f'Added {str(track)} to the queue.', delete_after=15)
 
     @cog_ext.cog_slash(name='pause', description='Pauses the audio')
     async def pause(self, ctx: SlashContext):
@@ -200,6 +209,7 @@ class playlist(Cog):
 
     @cog_ext.cog_slash(name='queue', description='Shows next 5 songs in the queue')
     async def queue(self, ctx: SlashContext):
+        """Retrieve information on the next 5 songs from the queue."""
         player = self.bot.wavelink.get_player(ctx.guild.id)
         controller = self.get_controller(ctx)
 
