@@ -28,7 +28,7 @@ class embed(Cog):
         value= f"{round(self.bot.latency * 1000)}ms",
         inline=True)
         embed.add_field(
-        name="Uptime:",
+        name="Bot Uptime:",
         value= f"{days}d, {hours}h, {minutes}m",
         inline=True)
         embed.add_field(
