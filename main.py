@@ -1,7 +1,6 @@
 import discord
 import os
 
-
 from discord.ext import commands
 from discord_slash import SlashCommand
 from datetime import datetime
