@@ -5,7 +5,7 @@ from discord_slash import cog_ext, SlashContext
 
 #StatsCmds===============================================
 
-class embed(Cog):
+class stats(Cog):
     def __init__(self, bot: Bot):
         self.bot = bot
 
@@ -40,4 +40,4 @@ class embed(Cog):
         await ctx.send(embed=embed)
 
 def setup(bot: Bot):
-    bot.add_cog(embed(bot))
+    bot.add_cog(stats(bot))

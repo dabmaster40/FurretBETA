@@ -3,6 +3,7 @@ import os
 import DiscordUtils
 import asyncio
 from discord import Embed
+from discord.utils import find
 from discord.ext import commands
 from discord_slash import SlashCommand
 from datetime import datetime
@@ -44,7 +45,8 @@ async def on_guild_join(guild): #DOES NOT WORK YET LMAOOOOOO
         return
     else:
         await guild.create_text_channel("bot_logs")
-        await channel.send(f"Thank you for inviting Furret! \n Feel free to delete this channel if you do not want me to print audit logs here.")
+        await channel.send(f"Thank you for inviting Furret! \n Feel free to delete this channel if you do not want me to print audit logs in this server.")
+
 
 
 #=========================================================
