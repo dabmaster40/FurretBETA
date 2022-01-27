@@ -40,4 +40,4 @@ for filename in os.listdir("./cogs"):
 
 
 #=========================================================
-bot.run('TOKEN')
+bot.run('OTI2NjMxNzI5NTEzNTI1MzEx.Yc-fDA.vmOgpfU0AW2rRsdBVGJM-r5o4mI')
