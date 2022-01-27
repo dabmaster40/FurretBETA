@@ -1,6 +1,8 @@
 import discord
 import os
 import DiscordUtils
+import asyncio
+from discord import Embed
 from discord.ext import commands
 from discord_slash import SlashCommand
 from datetime import datetime
@@ -22,13 +24,6 @@ async def on_ready():
   print('----------------------------------------------------')
   await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(bot.guilds)} servers"))
 
-@bot.event #I havent tested this yet so pls dont run the bot with this rn.
-async def on_member_join(member):
-    channel = discord.utils.get(member.guild.channels, name="bot_logs")
-    await channel.set_permissions(member, read_messages=False)
-    await channel.send(f"Thank you for using Furret.\n If you want Furret to send audit logs, keep this channel and do not change it. Otherwise, disregard.")
-    print(Logged.)
-
 #CogCMDS===============================================================
 
 for filename in os.listdir("./cogs"):
@@ -42,9 +37,15 @@ for filename in os.listdir("./cogs"):
 
 #Logging================================================
 
+@bot.event
+async def on_guild_join(guild): #DOES NOT WORK YET LMAOOOOOO
+    channel = discord.utils.get(guild.text_channels, name="bot_logs")
+    if channel.name == "bot_logs":
+        return
+    else:
+        await guild.create_text_channel("bot_logs")
+        await channel.send(f"Thank you for inviting Furret! \n Feel free to delete this channel if you do not want me to print audit logs here.")
 
 
-
-
-
+#=========================================================
 bot.run('TOKEN')

@@ -4,7 +4,7 @@ from discord import Embed
 from discord.ext.commands import Bot, Cog
 from discord_slash import cog_ext, SlashContext
 
-#Playlist==Commands===============================================
+#BasicCmds===============================================
 
 class basic(Cog):
     def __init__(self, bot: Bot):
