@@ -13,7 +13,7 @@ from typing import Union
 from discord.ext.commands import Bot, Cog
 from discord_slash import cog_ext, SlashContext
 
-#PlaylistCmds===============================================
+#Playlist==Commands===============================================
 
 RURL = re.compile('https?:\/\/(?:www\.)?.+')
 

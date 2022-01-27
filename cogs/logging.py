@@ -17,9 +17,9 @@ class logging(Cog):
         guild = ctx.guild
         channel = discord.utils.get(guild.text_channels, name="bot_logs")
         if channel is None:
+            await ctx.send("Created bot_logs.")
             channel = await guild.create_text_channel("bot_logs")
             await ctx.message.guild.create_text_channel(channel)
-            await ctx.send("Created bot_logs.")
         else:
             await ctx.send("The channel already exists!")
 
