@@ -37,7 +37,7 @@ for filename in os.listdir("./cogs"):
 
 #Logging================================================
 
-@bot.event
+@bot.listener()
 async def on_guild_join(guild): #DOES NOT WORK YET LMAOOOOOO
     channel = discord.utils.get(guild.text_channels, name="bot_logs")
     if channel.name == "bot_logs":
