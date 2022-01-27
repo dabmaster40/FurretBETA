@@ -38,16 +38,6 @@ for filename in os.listdir("./cogs"):
 
 #Logging================================================
 
-@bot.listener()
-async def on_guild_join(guild): #DOES NOT WORK YET LMAOOOOOO
-    channel = discord.utils.get(guild.text_channels, name="bot_logs")
-    if channel.name == "bot_logs":
-        return
-    else:
-        await guild.create_text_channel("bot_logs")
-        await channel.send(f"Thank you for inviting Furret! \n Feel free to delete this channel if you do not want me to print audit logs in this server.")
-
-
 
 #=========================================================
 bot.run('TOKEN')
