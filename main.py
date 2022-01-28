@@ -23,6 +23,12 @@ async def on_ready():
   for guild in bot.guilds:
         print(f"Joined {guild.name}")
   print('----------------------------------------------------')
+  print('___________                           __\n  ',
+        '\_   _____/_ ________________   _____/  |_\n ',
+        ' |    __)|  |  \_  __ \_  __ \_/ __ \   __\ \n',
+        ' |     \ |  |  /|  | \/|  | \/\  ___/|  |\n  ',
+        ' \___  / |____/ |__|   |__|    \___  >__| \n ',
+        '     \/                            \/ \n      ')
   await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(bot.guilds)} servers"))
 
 #CogCMDS===============================================================
@@ -40,4 +46,4 @@ for filename in os.listdir("./cogs"):
 
 
 #=========================================================
-bot.run('OTI2NjMxNzI5NTEzNTI1MzEx.Yc-fDA.vmOgpfU0AW2rRsdBVGJM-r5o4mI')
+bot.run('TOKEN')
