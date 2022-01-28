@@ -18,17 +18,18 @@ bot.launch_time = datetime.utcnow()
 
 @bot.event
 async def on_ready():
-  print('Furret is ready')
   print(f'Furret is in {len(bot.guilds)} server(s)!')
   for guild in bot.guilds:
         print(f"Joined {guild.name}")
   print('----------------------------------------------------')
-  print('___________                           __\n  ',
+  print('   ___________                           __\n  ',
         '\_   _____/_ ________________   _____/  |_\n ',
-        ' |    __)|  |  \_  __ \_  __ \_/ __ \   __\ \n',
-        ' |     \ |  |  /|  | \/|  | \/\  ___/|  |\n  ',
+        '  |    __)|  |  \_  __ \_  __ \_/ __ \   __\ \n',
+        '   |     \ |  |  /|  | \/|  | \/\  ___/|  |\n  ',
         ' \___  / |____/ |__|   |__|    \___  >__| \n ',
         '     \/                            \/ \n      ')
+  print('----------------------------------------------------')
+  print('Furret is online with all cogs loaded. 2022')
   await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(bot.guilds)} servers"))
 
 #CogCMDS===============================================================
@@ -46,4 +47,4 @@ for filename in os.listdir("./cogs"):
 
 
 #=========================================================
-bot.run('TOKEN')
+bot.run('')
