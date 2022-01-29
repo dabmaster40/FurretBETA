@@ -9,11 +9,10 @@ from discord_slash import SlashCommand
 from datetime import datetime
 from discord.ext.commands import has_permissions, MissingPermissions
 
-
 #===============================================================================
 
 intents = discord.Intents.all()
-bot = commands.Bot(intents = intents)
+bot = commands.Bot(command_prefix=">", intents = intents)
 slash = SlashCommand(bot, sync_commands=True)
 sent_users = []
 bot.launch_time = datetime.utcnow()
@@ -45,4 +44,5 @@ for filename in os.listdir("./cogs"):
         print(f"Loaded {filename}!")
 
 #=========================================================
-bot.run()
+
+bot.run('')
