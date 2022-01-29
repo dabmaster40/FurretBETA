@@ -15,8 +15,9 @@ from musicbot.settings import Settings
 from musicbot import utils
 from musicbot.utils import guild_to_audiocontroller, guild_to_settings
 from discord.ext import buttons
-
 from musicbot.commands.general import General
+
+#===============================================================================
 
 intents = discord.Intents.all()
 initial_extensions = ['musicbot.commands.music',
@@ -26,7 +27,8 @@ bot = commands.Bot(command_prefix=config.BOT_PREFIX,
 slash = SlashCommand(bot, sync_commands=True)
 sent_users = []
 bot.launch_time = datetime.utcnow()
-#BotEvent==================================================================
+
+#ConfigLoader==================================================================
 
 if __name__ == '__main__':
 
@@ -42,6 +44,8 @@ if __name__ == '__main__':
             bot.load_extension(extension)
         except Exception as e:
             print(e)
+
+#BotEvents========================================================================================
 
 @bot.event
 async def on_ready():
@@ -60,6 +64,7 @@ async def on_ready():
   print('----------------------------------------------------')
   await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{len(bot.guilds)} servers"))
 
+#RegisterShit==============================================================================================================
 
 @bot.event
 async def on_guild_join(guild):
