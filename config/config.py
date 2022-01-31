@@ -1,0 +1,37 @@
+BOT_TOKEN: str = "OTI2NjMxNzI5NTEzNTI1MzEx.Yc-fDA.z8bBbc2UAQHj4dTeiy5L39avRtA"
+SPOTIFY_ID: str = "09c6562130124f5d85bcbe958d6c01c1"
+SPOTIFY_SECRET: str = "31b7d10e8f4d4180a7a4e8ab27cba0b9"
+BOT_PREFIX = "."
+EMBED_COLOR = 0
+SUPPORTED_EXTENSIONS = ('.webm', '.mp4', '.mp3', '.avi', '.wav', '.m4v', '.ogg', '.mov')
+MAX_SONG_PRELOAD = 10
+COOKIE_PATH = "/config/cookies/cookies.txt"
+GLOBAL_DISABLE_AUTOJOIN_VC = True
+VC_TIMEOUT = 600 #seconds
+VC_TIMOUT_DEFAULT = True  #default template setting for VC timeout true= yes, timeout false= no timeout
+ALLOW_VC_TIMEOUT_EDIT = True  #allow or disallow editing the vc_timeout guild setting
+STARTUP_COMPLETE_MESSAGE = "Config.py is connected."
+NO_GUILD_MESSAGE = 'Error: Please join a voice channel or enter the command in guild chat'
+USER_NOT_IN_VC_MESSAGE = "Error: Please join the active voice channel to use commands"
+WRONG_CHANNEL_MESSAGE = "Error: Please use configured command channel"
+NOT_CONNECTED_MESSAGE = "Error: Bot not connected to any voice channel"
+ALREADY_CONNECTED_MESSAGE = "Error: Already connected to a voice channel"
+CHANNEL_NOT_FOUND_MESSAGE = "Error: Could not find channel"
+DEFAULT_CHANNEL_JOIN_FAILED = "Error: Could not join the default voice channel"
+INVALID_INVITE_MESSAGE = "Error: Invalid invitation link"
+INFO_HISTORY_TITLE = "Songs Played:"
+MAX_HISTORY_LENGTH = 10
+MAX_TRACKNAME_HISTORY_LENGTH = 20
+SONGINFO_UPLOADER = "Uploader: "
+SONGINFO_DURATION = "Duration: "
+SONGINFO_SECONDS = "s"
+SONGINFO_LIKES = "Likes: "
+SONGINFO_DISLIKES = "Dislikes: "
+SONGINFO_NOW_PLAYING = "Now Playing..."
+SONGINFO_QUEUE_ADDED = "Added to queue :page_with_curl:"
+SONGINFO_SONGINFO = "Song info"
+SONGINFO_UNKNOWN_SITE = "Unknown site :question:"
+SONGINFO_PLAYLIST_QUEUED = "Queued playlist :page_with_curl:"
+SONGINFO_UNKNOWN_DURATION = "Unknown"
+
+ABSOLUTE_PATH = '' #do not modify
