@@ -101,6 +101,88 @@ for filename in os.listdir("./cogs"):
         bot.load_extension(f"cogs.{filename[:-3]}")
         print(f"Loaded {filename}!")
 
-#=========================================================
+#Logging=========================================================
+
+@bot.event
+async def on_message_delete(message):
+    if message.author.bot:
+        return
+    deleted = Embed(
+        description=f"Message deleted in {message.channel.mention}").set_author(name=message.author, url=Embed.Empty,
+                                                                                icon_url=message.author.avatar_url)
+    channel = discord.utils.get(message.guild.text_channels, name='bot_logs')
+    deleted.add_field(name="Message deleted", value=message.content)
+    deleted.timestamp = message.created_at
+    await channel.send(embed=deleted)
+
+@bot.event
+async def on_message_edit(message_before, message_after):
+    edited = Embed(
+        description=f"Message edited in {message_before.channel.mention}").set_author(name=message_before.author.name,
+                                                                                      url=Embed.Empty,
+                                                                                      icon_url=message_before.author.avatar_url)
+    channel = discord.utils.get(message_before.guild.text_channels, name='bot_logs')
+    edited.add_field(name="Message before", value=message_before.content)
+    edited.add_field(name="Message after", value=message_after.content)
+    edited.timestamp = message_before.created_at
+    await channel.send(embed=edited)
+
+@bot.event
+async def on_guild_role_create(role):
+    await asyncio.sleep(10)
+    channel = discord.utils.get(role.guild.text_channels, name='bot_logs')
+    guild = bot.get_guild(357275687989673984)
+    rc = discord.Embed(title=f"**New role created**", description=f"{role.mention}", timestamp=role.created_at)
+    await channel.send(embed=rc)
+
+@bot.event
+async def on_guild_role_update(before, after):
+    if before.name != after.name:
+        channel = discord.utils.get(before.guild.text_channels, name='bot_logs')
+        guild = bot.get_guild(357275687989673984)
+        ru = discord.Embed(title="Role " + before.name + " changed to " + after.name + ".")
+        await channel.send(embed=ru)
+
+@bot.event
+async def on_guild_role_delete(role):
+    await asyncio.sleep(10)
+    channel = discord.utils.get(role.guild.text_channels, name='bot_logs')
+    guild = bot.get_guild(357275687989673984)
+    rd = discord.Embed(title=f"**Role deleted**", description=f"{role.mention}", timestamp=role.created_at)
+    await channel.send(embed=rd)
+
+@bot.event
+async def on_guild_channel_create(before):
+    cc = Embed(description=f"{before.name}"
+    ).set_author(name=f"New channel was created.")
+    channel = discord.utils.get(before.guild.text_channels, name='bot_logs')
+    guild = bot.get_guild(357275687989673984)
+    await channel.send(embed=cc)
+
+@bot.event
+async def on_guild_channel_update(before, after):
+    if before.name != after.name:
+        channel = discord.utils.get(before.guild.text_channels, name='bot_logs')
+        guild = bot.get_guild(357275687989673984)
+        cu = discord.Embed(title="Channel " + before.name + " renamed to " + after.name + ".")
+        await channel.send(embed=cu)
+
+@bot.event
+async def on_guild_channel_delete(before):
+    await asyncio.sleep(10)
+    channel = discord.utils.get(before.guild.text_channels, name='bot_logs')
+    guild = bot.get_guild(357275687989673984)
+    cd = discord.Embed(title=f"**Channel deleted**", description=f"{before.name}")
+    await channel.send(embed=cd)
+
+@bot.event
+async def on_member_update(before, after):
+    if len(before.roles) < len(after.roles):
+        rc = Embed(title=f"{before.name} roles changed.")
+        channel = discord.utils.get(before.guild.text_channels, name='bot_logs')
+        rc.add_field(name="Updated Role List", value=after.roles)
+        await channel.send(embed=rc)
+
+#================================================================
 
 bot.run(config.BOT_TOKEN, bot=True, reconnect=True)
